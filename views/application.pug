@@ -1,6 +1,9 @@
 extends layout
 include mixins/form
 
+block css
+  link(rel='stylesheet', href='/css/lib/rangeslider.css')
+
 block content
   .row
       .cell-form
@@ -10,10 +13,12 @@ block content
           .form__row
             h3 This is the header
 
-          - var error_required = "This field is required"
+          - var error_required = 'This field is required'
           +form_text('surname', 'Surname / family name', 'true', error_required, '')
+          +form_textarea('blah', 'Blah textarea', 'true', error_required, '')
           +form_email('email', 'Email', 'true', 'Enter a valid email', '')
           +form_select('test', 'THis is a test select', 'true', 'Select one option from the available', {})
+          +form_range('woot', 'Woot range', 'true', error_required, 1, 1, 5, 1, 'horizontal')
 
           .form__row
             input.formSpeedConnection(type='hidden', name='speed')
@@ -42,3 +47,6 @@ block content
             li.techBrowser ---
             li.techResolution --- x ---
             li.techCountry ---
+
+block js
+  script(src='/js/lib/rangeslider.js')
