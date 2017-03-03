@@ -1,4 +1,5 @@
 extends layout
+include mixins/form
 
 block content
   .row
@@ -9,37 +10,10 @@ block content
           .form__row
             h3 This is the header
 
-          .form__row.form__row--email
-            label(for='email') This is the email question
-            input.form__element(type='email', name='email', data-parsley-required='true', data-parsley-class-handler='.form__row--email', data-parsley-errors-container='.form-feedback--email', data-parsley-error-message="This field requires an email address")
-            span.form__feedback.form-feedback--email
-
-          .form__row.form__row--alpha
-            label(for='alpha') Alpha question
-            input.form__element(type='text', name='alpha', data-parsley-required='true', data-parsley-class-handler='.form__row--alpha', data-parsley-errors-container='.form-feedback--alpha', data-parsley-error-message="This field is required")
-            span.form__feedback.form-feedback--alpha
-
-          .form__row.form__row--beta
-            label(for='beta') Beta question
-            select.form__element(name='beta', data-parsley-required='true', data-parsley-class-handler='.form__row--beta', data-parsley-errors-container='.form-feedback--beta', data-parsley-error-message="This field is required")
-              option(value='') Select an option
-              option(value='balls') Balls
-            span.form__feedback.form-feedback--beta
-
-          .form__row.form__row--charlie
-            label(for='charlie') Charlie question
-            input.form__element(type='text', name='charlie', data-parsley-required='true', data-parsley-class-handler='.form__row--charlie', data-parsley-errors-container='.form-feedback--charlie', data-parsley-error-message="This field is required")
-            span.form__feedback.form-feedback--charlie
-
-          .form__row.form__row--delta
-            label(for='delta') Delat question
-            input.form__element(type='text', name='delta', data-parsley-required='true', data-parsley-class-handler='.form__row--delta', data-parsley-errors-container='.form-feedback--delta', data-parsley-error-message="This field is required")
-            span.form__feedback.form-feedback--delta
-
-          .form__row.form__row--echo
-            label(for='echo') Echo question
-            textarea.form__element(name='echo', data-parsley-required='true', data-parsley-class-handler='.form__row--echo', data-parsley-errors-container='.form-feedback--echo', data-parsley-error-message="This field is required")
-            span.form__feedback.form-feedback--echo
+          - var error_required = "This field is required"
+          +form_text('surname', 'Surname / family name', 'true', error_required, '')
+          +form_email('email', 'Email', 'true', 'Enter a valid email', '')
+          +form_select('test', 'THis is a test select', 'true', 'Select one option from the available', {})
 
           .form__row
             input.formSpeedConnection(type='hidden', name='speed')

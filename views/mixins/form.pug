@@ -1,0 +1,21 @@
+mixin form_text(id, name, required, error, value)
+  div(class='form__row form__row--'+id)
+    label(for=id) #{name}
+    input.form__element(type='text', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error)
+    span(class='form__feedback.form-feedback--'+id)
+
+mixin form_email(id, name, required, error, value)
+  div(class='form__row form__row--'+id)
+    label(for=id) #{name}
+    input.form__element(type='email', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error)
+    span(class='form__feedback.form-feedback--'+id)
+
+mixin form_select(id, name, required, error, options)
+  div(class='form__row form__row--'+id)
+    label(for=id) #{name}
+    select.form__element(name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error)
+      for option in options
+        option(value=option.value) option.name
+      else
+        option(value='') No options provided
+    span(class='form__feedback.form-feedback--'+id)
