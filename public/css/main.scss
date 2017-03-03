@@ -1,70 +1,242 @@
-@import "themes/default/variables";
-
-@import "lib/bootstrap/bootstrap";
-@import "lib/font-awesome/font-awesome";
-
-@import "themes/default/default";
-
-// Scaffolding
-// -------------------------
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+@import "reset.scss";
+@import "settings.scss";
 
 body {
-  padding-top: 60px;
-  margin-bottom: 75px;
+  direction: ltr;
+  &.rtl {
+    direction: rtl;
+  }
 }
-
-footer {
-  position: absolute;
-  bottom: 0;
+// App
+.container {
+  margin: 0 auto;
+  position: relative;
   width: 100%;
-  height: 45px;
-  line-height: 45px;
-
-  p, ul {
-    margin-bottom: 0;
+  max-width: $max-width;
+}
+.row {
+  box-sizing: border-box;
+  clear: both;
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.cell-form {
+  box-sizing: border-box;
+  float: left;
+  margin: 0 4% 0 0;
+  width: 65.33333%;
+}
+.cell-module {
+  box-sizing: border-box;
+  float: left;
+  margin: 0;
+  width: 30.66667%;
+}
+// Language
+.language {
+  background-color: $colour-grey-light;
+  height: 35px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    float: left;
+    padding-right: 20px;
+  }
+  a {
+    font-size: 12px;
+    line-height: 35px;
+    color: $colour-black;
+    &.active {
+      color: $colour-primary;
+    }
   }
 }
 
-// Input Fields
-// -------------------------
-
+// Header
+.header {
+  background-color: $colour-primary;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  width: 100%;
+  .logo {
+    display: block;
+    height: 79px;
+    width: 400px;
+  }
+}
+// Footer
+.footer {
+  background-color: $colour-grey-light;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .logo {
+    display: block;
+    height: 63px;
+    width: 66px;
+  }
+}
+// Colophon
+.colophon {
+  background-color: $colour-grey;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+p {
+  font-family: $base-sansserif;
+  font-size: 12px;
+  line-height: 19px;
+  color: #6d676d;
+  margin-bottom: 5px;
+}
+a {
+  color: $colour-primary;
+  text-decoration: none;
+  &:hover {
+    color: $colour-secondary;
+    text-decoration: underline;
+  }
+}
+// Form
+h3 {
+  font-size: 26px;
+  color: $colour-highlight;
+  font-family: $base-serif;
+  font-weight: 500;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+}
+input, select, textarea {
+  box-sizing: border-box;
+}
 textarea {
-  resize: vertical;
+  height: auto;
 }
-
-// Navbar
-// -------------------------
-
-.navbar-nav img {
-  width: 30px;
-  height: 30px;
-  margin: -15px 15px -15px;
+select {
+  height: 44px;
 }
-
-// Alerts
-// -------------------------
-
-.alert {
-  margin-top: 20px;
+label {
+  color: $colour-grey-dark;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  max-width: 100%;
 }
-
-// Thumbnails
-// -------------------------
-
-.thumbnail {
-  padding: 0;
+.form {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+.form__element {
+  background-color: $colour-white;
+  background-image: none;
+  border: 1px solid $colour-grey;
+  border-radius: $base-border-radius;
+  box-shadow: inset 0 1px 1px rgba($colour-black,.075);
+  color: $colour-grey-darker;
+  display: block;
+  padding: 12px 12px;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  width: 100%;
+  &.is-focused,
+  &:focus {
+    border-color: $colour-primary;
+    box-shadow: inset 0 1px 1px rgba($colour-black,.075),0 0 8px rgba($colour-primary,0.25);
+    outline: 0;
+  }
+}
+.form__row {
+  margin-bottom: 20px;
+}
+.form__feedback {
+  color: $colour-warning;
+  padding-top: 8px;
+}
+.btn {
+  font-size: 22px;
+  background-color: $colour-white;
+  background-image: url(../img/arrow-small-single-blue-2x.png);
+  background-position: right 12px top 50%;
+  background-repeat: no-repeat;
+  background-size: 10px 18px;
+  border: 1px solid $colour-primary;
   border-radius: 0;
-  box-shadow: 0 0 5px #ccc, inset 0 0 0 #000;
+  color: $colour-primary;
+  cursor: pointer;
+  display: block;
+  font-family: $base-serif;
+  font-weight: 400;
+  padding: 8px 32px 8px 12px;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  &:hover {
+    border: 1px solid $colour-secondary;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: 1px dotted $colour-secondary;
+  }
 }
-
-// Font Icons
-// -------------------------
-
-.fa {
-  margin-right: 6px;
+.rtl {
+  .btn {
+    background-image: url(../img/arrow-small-single-blue-rtl-2x.png);
+    background-position: left 12px top 50%;
+    padding: 8px 12px 8px 32px;
+  }
+}
+// Card
+.card {
+  background-image: url(../img/hatch-2x.png);
+  background-color: $colour-grey-lighter;
+  background-size: 15px 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px 30px;
+  h2 {
+    font-size: 14px;
+    line-height: 14px;
+    color: $colour-grey-dark;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  h3 {
+    color: $colour-black;
+    font-size: 44px;
+    line-height: 54px;
+    font-family: $base-serif;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    font-size: 22px;
+    line-height: 26px;
+    font-family: $base-serif;
+  }
+}
+// Flash
+.alert-success {
+  background-color: rgba($colour-success, 0.2);
+  border: 1px solid $colour-success;
+  border-radius: $base-border-radius;
+  color: $colour-success;
+  font-family: $base-sansserif;
+  font-size: 16px;
+  margin-top: 30px;
+  padding: 8px 12px;
 }

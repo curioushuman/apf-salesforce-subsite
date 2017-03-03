@@ -1,27 +1,70 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
   .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+      .cell-form
+
+        form.form(method='post', action='/')
+
+          .form__row
+            h3 This is the header
+
+          .form__row.form__row--email
+            label(for='email') This is the email question
+            input.form__element(type='email', name='email', data-parsley-required='true', data-parsley-class-handler='.form__row--email', data-parsley-errors-container='.form-feedback--email', data-parsley-error-message="This field requires an email address")
+            span.form__feedback.form-feedback--email
+
+          .form__row.form__row--alpha
+            label(for='alpha') Alpha question
+            input.form__element(type='text', name='alpha', data-parsley-required='true', data-parsley-class-handler='.form__row--alpha', data-parsley-errors-container='.form-feedback--alpha', data-parsley-error-message="This field is required")
+            span.form__feedback.form-feedback--alpha
+
+          .form__row.form__row--beta
+            label(for='beta') Beta question
+            select.form__element(name='beta', data-parsley-required='true', data-parsley-class-handler='.form__row--beta', data-parsley-errors-container='.form-feedback--beta', data-parsley-error-message="This field is required")
+              option(value='') Select an option
+              option(value='balls') Balls
+            span.form__feedback.form-feedback--beta
+
+          .form__row.form__row--charlie
+            label(for='charlie') Charlie question
+            input.form__element(type='text', name='charlie', data-parsley-required='true', data-parsley-class-handler='.form__row--charlie', data-parsley-errors-container='.form-feedback--charlie', data-parsley-error-message="This field is required")
+            span.form__feedback.form-feedback--charlie
+
+          .form__row.form__row--delta
+            label(for='delta') Delat question
+            input.form__element(type='text', name='delta', data-parsley-required='true', data-parsley-class-handler='.form__row--delta', data-parsley-errors-container='.form-feedback--delta', data-parsley-error-message="This field is required")
+            span.form__feedback.form-feedback--delta
+
+          .form__row.form__row--echo
+            label(for='echo') Echo question
+            textarea.form__element(name='echo', data-parsley-required='true', data-parsley-class-handler='.form__row--echo', data-parsley-errors-container='.form-feedback--echo', data-parsley-error-message="This field is required")
+            span.form__feedback.form-feedback--echo
+
+          .form__row
+            input.formSpeedConnection(type='hidden', name='speed')
+            input.formTechOs(type='hidden', name='os')
+            input.formTechBrowser(type='hidden', name='browser')
+            input.formTechResolution(type='hidden', name='resolution')
+            input.formTechCountry(type='hidden', name='country')
+            button.btn.btn--primary.btn--submit(type='submit') Submit
+
+      .cell-module
+        .card
+          h2 Language
+          #google_translate_element
+          script(type='text/javascript').
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ar,id,ko,ru,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+          script(type='text/javascript', src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+        .card
+          h2 Speed
+          h3.speedConnection ---
+        .card
+          h2 Technology
+          ul
+            li.techOs ---
+            li.techBrowser ---
+            li.techResolution --- x ---
+            li.techCountry ---
