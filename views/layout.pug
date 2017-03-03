@@ -4,8 +4,22 @@ html
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title #{title} - APF Regional Training Portal
-    link(rel='shortcut icon', href='/favicon.png')
+    if subtitle == ''
+      title #{title} - APF Regional Training Portal
+    else
+      title #{subtitle} - #{title} - APF Regional Training Portal
+    link(rel='apple-touch-icon', sizes='57x57', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_apple-touch-icon-57x57-precomposed.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_apple-touch-icon-72x72-precomposed.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_apple-touch-icon-114x114-precomposed.png')
+    link(rel='icon', type='image/png', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_favicon-32px.png', sizes='32x32')
+    link(rel='icon', type='image/png', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_favicon-96px.png', sizes='96x96')
+    link(rel='icon', type='image/png', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_favicon-128px.png', sizes='128x128')
+    link(rel='icon', type='image/png', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_favicon-160px.png', sizes='256x160')
+    link(rel='icon', type='image/png', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_favicon-24px.png', sizes='24x24')
+    link(rel='icon', type='image/png', href='http://www.asiapacificforum.net/static/favicons/APF_favicon_favicon.png', sizes='16x16')
+    meta(name='msapplication-TileColor', content='#006EB2')
+    meta(name='msapplication-TileImage', content='http://www.asiapacificforum.net/static/favicons/APF_favicon-windows-8.png')
+    meta(name='theme-color', content='#006EB2')
     link(rel='stylesheet', href='/css/main.css')
     meta(name='ip_address', content='')
 

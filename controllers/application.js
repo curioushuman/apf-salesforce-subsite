@@ -12,7 +12,18 @@ jsforce_conn.login(process.env.SALESFORCE_USERNAME, process.env.SALESFORCE_PASSW
  * Application page.
  */
 exports.index = (req, res) => {
-  res.render('application', {
-    title: 'Application form'
-  });
+  jsforce_conn.sobject('Action__C').retrieve(req.params.action)
+    .then(function(result) {
+      console.log("Name : " + result.Name);
+      res.render('application', {
+        title: 'Application form',
+        subtitle: result.Name
+      });
+    }, function(err) {
+      console.error(err);
+      res.render('application', {
+        title: 'Application form',
+        subtitle: 'Action not found'
+      });
+    });
 };

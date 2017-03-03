@@ -9,6 +9,20 @@ jsforce_conn.login(process.env.SALESFORCE_USERNAME, process.env.SALESFORCE_PASSW
     console.log(res);
   });
 });
+//
+// jsforce_conn.query("SELECT Id, Name FROM Account LIMIT 1")
+//   .then(function(res) {
+//     // receive resolved result from the promise,
+//     // then return another promise for continuing API execution.
+//     return conn.sobject('Account').create({ Name: 'Another Account' });
+//   })
+//   .then(function(ret) {
+//     // handle final result of API execution
+//     // ...
+//   }, function(err) {
+//     // catch any errors in execution
+//     // ...
+//   });
 
 /**
  * GET /
