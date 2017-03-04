@@ -4,7 +4,6 @@
  */
 exports.index = (req, res) => {
   res.render('home', {
-    title: 'Home',
-    subtitle: ''
+    title: 'Home'
   });
 };

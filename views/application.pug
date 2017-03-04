@@ -5,7 +5,7 @@ block css
   link(rel='stylesheet', href='/css/lib/rangeslider.css')
 
 block content
-  .row
+  .row(ng-controller='applicationCtrl')
       .cell-form
 
         if renderForm
@@ -15,11 +15,16 @@ block content
               h1 This is the header
 
             - var error_required = 'This field is required'
-            +form_text('surname', 'Surname / family name', 'true', error_required, '')
-            +form_text('firstname', 'First name / preferred name', 'true', error_required, '')
-            +form_radios('gender', 'Gender / gender identity', 'true', error_required, gender_options)
-            +form_textarea('blah', 'Blah textarea', 'true', error_required, '')
-            +form_email('email', 'Email', 'true', 'Enter a valid email', '')
+            +form_email('Contact___Email', 'Email', 'true', 'Enter a valid email', '')
+            button.btn.btn--primary.btn--submit(type='submit') Find my details
+
+            .alert.alert-success(role="alert") blah
+
+            +form_text('Contact___LastName', 'Surname / family name', 'true', error_required, '')
+            +form_text('Contact___FirstName', 'First name / preferred name', 'true', error_required, '')
+            +form_radios('Contact___Gender__c', 'Gender / gender identity', 'true', error_required, gender_options)
+            +form_textarea('Contact___Dietary_requirements__c', 'Dietary requirements', 'true', error_required, '')
+            +form_textarea('Contact___Accessibility_requirements__c', 'Accessibility requirements', 'true', error_required, '')
             +form_select('test', 'THis is a test select', 'true', 'Select one option from the available', {})
             +form_range('woot', 'Woot range', 'true', error_required, 1, 1, 5, 1, 'horizontal')
 
@@ -52,4 +57,6 @@ block content
             li.techCountry ---
 
 block js
-  script(src='/js/lib/rangeslider.js')
+  script(src='/js/lib/rangeslider.min.js')
+  script(src='https://code.angularjs.org/1.4.5/angular.min.js')
+  script(src='/js/application.js')

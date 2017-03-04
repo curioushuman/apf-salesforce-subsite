@@ -1,16 +1,20 @@
-mixin form_text(id, name, required, error, value)
+mixin form_text(id, name, required, error, value, help)
   div(class='form__row form__row--'+id)
     label(for=id) #{name}
     input.form__element(type='text', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=value)
-    span(class='form__feedback.form-feedback--'+id)
+    span(class='form__feedback form-feedback--'+id)
+    if help
+      span.help-block #{help}
 
-mixin form_email(id, name, required, error, value)
+mixin form_email(id, name, required, error, value, help)
   div(class='form__row form__row--'+id)
     label(for=id) #{name}
     input.form__element(type='email', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=value)
-    span(class='form__feedback.form-feedback--'+id)
+    span(class='form__feedback form-feedback--'+id)
+    if help
+      span.help-block #{help}
 
-mixin form_select(id, name, required, error, options)
+mixin form_select(id, name, required, error, options, help)
   div(class='form__row form__row--'+id)
     label(for=id) #{name}
     select.form__element(name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error)
@@ -18,21 +22,27 @@ mixin form_select(id, name, required, error, options)
         option(value=option.value) option.name
       else
         option(value='') No options provided
-    span(class='form__feedback.form-feedback--'+id)
+    span(class='form__feedback form-feedback--'+id)
+    if help
+      span.help-block #{help}
 
-mixin form_textarea(id, name, required, error, value)
+mixin form_textarea(id, name, required, error, value, help)
   div(class='form__row form__row--'+id)
     label(for=id) #{name}
     textarea.form__element(name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error) #{value}
-    span(class='form__feedback.form-feedback--'+id)
+    span(class='form__feedback form-feedback--'+id)
+    if help
+      span.help-block #{help}
 
-mixin form_range(id, name, required, error, value, min, max, step, orientation)
+mixin form_range(id, name, required, error, value, min, max, step, orientation, help)
   div(class='form__row form__row__range form__row--'+id)
     label(for=id) #{name}
     input.form__element(type='range', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=value, min=min, max=max, step=step, data-orientation=orientation)
-    span(class='form__feedback.form-feedback--'+id)
+    span(class='form__feedback form-feedback--'+id)
+    if help
+      span.help-block #{help}
 
-mixin form_radios(id, name, required, error, options)
+mixin form_radios(id, name, required, error, options, help)
   div(class='form__row form__row--'+id)
     label(for=id) #{name}
     for option in options
@@ -44,3 +54,5 @@ mixin form_radios(id, name, required, error, options)
         input.form__element(type='radio', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value='', checked)
         | No options available
     span(class='form__feedback form-feedback--'+id)
+    if help
+      span.help-block #{help}
