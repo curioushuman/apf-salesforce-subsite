@@ -129,8 +129,10 @@ label {
   color: $colour-grey-dark;
   display: inline-block;
   margin-bottom: 10px;
-  font-weight: 700;
   max-width: 100%;
+}
+.form__row__range label {
+  padding-bottom: 10px;
 }
 .form {
   margin-top: 30px;
@@ -156,6 +158,9 @@ label {
 }
 .form__row {
   margin-bottom: 20px;
+}
+.form__row__range {
+  padding-bottom: 30px;
 }
 .form__feedback {
   color: $colour-warning;
@@ -239,4 +244,41 @@ label {
   font-size: 16px;
   margin-top: 30px;
   padding: 8px 12px;
+}
+
+// range slider
+
+.rangeslider__fill {
+  background: #006eb2;
+}
+
+.rangeslider,
+input[type='range'] {
+  // max-width: 400px;
+}
+
+.rangeslider__handle {
+  border-radius: 22px;
+  min-width: 62px;
+  line-height: 42px;
+  text-align: center;
+  color: $colour-grey-dark;
+
+  &:after {
+    background: 0;
+  }
+}
+
+.rangeslider__ruler {
+  cursor: pointer;
+  color: $colour-grey-dark;
+  position: relative;
+  top: 150%;
+  text-align: justify;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
 }
