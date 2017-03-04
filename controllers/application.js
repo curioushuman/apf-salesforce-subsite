@@ -12,18 +12,53 @@ jsforce_conn.login(process.env.SALESFORCE_USERNAME, process.env.SALESFORCE_PASSW
  * Application page.
  */
 exports.index = (req, res) => {
-  jsforce_conn.sobject('Action__C').retrieve(req.params.action)
-    .then(function(result) {
-      console.log("Name : " + result.Name);
-      res.render('application', {
-        title: 'Application form',
-        subtitle: result.Name
-      });
-    }, function(err) {
-      console.error(err);
-      res.render('application', {
-        title: 'Application form',
-        subtitle: 'Action not found'
-      });
-    });
+
+  // variables
+  var gender_options = [
+    {
+      'id': 1,
+      'label': 'Female',
+      'value': 'female'
+    },
+    {
+      'id': 2,
+      'label': 'Male',
+      'value': 'male'
+    },
+    {
+      'id': 3,
+      'label': 'Other',
+      'value': 'other'
+    },
+    {
+      'id': 4,
+      'label': 'Prefer not to disclose',
+      'value': 'no disclose'
+    }
+  ];
+
+  res.render('application', {
+    title: 'Application form',
+    subtitle: 'Temp name',
+    renderForm: true,
+    gender_options: gender_options
+  });
+
+  // jsforce_conn.sobject('Action__C').retrieve(req.params.action)
+  //   .then(function(result) {
+  //     console.log("Name : " + result.Name);
+  //     res.render('application', {
+  //       title: 'Application form',
+  //       subtitle: result.Name,
+  //       renderForm: true,
+  //       gender_options: gender_options
+  //     });
+  //   }, function(err) {
+  //     console.error(err);
+  //     res.render('application', {
+  //       title: 'Application form',
+  //       subtitle: 'Action not found',
+  //       renderForm: false
+  //     });
+  //   });
 };

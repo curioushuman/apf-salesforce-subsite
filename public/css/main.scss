@@ -1,7 +1,16 @@
+@import "themes/default/variables";
+@import "lib/bootstrap/bootstrap";
+@import "lib/font-awesome/font-awesome";
+
+@import "themes/default/default";
+
 @import "reset.scss";
 @import "settings.scss";
 
 body {
+  font-family: $base-sansserif;
+  font-size: 14px;
+  font-weight: normal;
   direction: ltr;
   &.rtl {
     direction: rtl;
@@ -13,6 +22,11 @@ body {
   position: relative;
   width: 100%;
   max-width: $max-width;
+}
+.language .container,
+.header .container {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .row {
   box-sizing: border-box;
@@ -93,8 +107,6 @@ body {
   padding-bottom: 30px;
 }
 p {
-  font-family: $base-sansserif;
-  font-size: 12px;
   line-height: 19px;
   color: #6d676d;
   margin-bottom: 5px;
@@ -108,7 +120,7 @@ a {
   }
 }
 // Form
-h3 {
+h1 {
   font-size: 26px;
   color: $colour-highlight;
   font-family: $base-serif;
@@ -128,6 +140,7 @@ select {
 label {
   color: $colour-grey-dark;
   display: inline-block;
+  font-weight: normal;
   margin-bottom: 10px;
   max-width: 100%;
 }
@@ -210,6 +223,7 @@ label {
   margin-bottom: 30px;
   padding: 20px 30px;
   h2 {
+    font-family: $base-sansserif;
     font-size: 14px;
     line-height: 14px;
     color: $colour-grey-dark;

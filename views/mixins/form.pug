@@ -31,3 +31,15 @@ mixin form_range(id, name, required, error, value, min, max, step, orientation)
     label(for=id) #{name}
     input.form__element(type='range', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=value, min=min, max=max, step=step, data-orientation=orientation)
     span(class='form__feedback.form-feedback--'+id)
+
+mixin form_radios(id, name, required, error, options)
+  div(class='form__row form__row--'+id)
+    label(for=id) #{name}
+    for option in options
+      div.radio
+        input.form__element(type='radio', name=id+'.'+option.id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=option.value)
+        | #{option.label}
+    else
+      input.form__element(type='radio', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value='', checked)
+      | No options available
+    span(class='form__feedback.form-feedback--'+id)

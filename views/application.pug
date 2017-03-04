@@ -8,25 +8,28 @@ block content
   .row
       .cell-form
 
-        form.form(method='post', action='/')
+        if renderForm
+          form.form(method='post', action='/')
 
-          .form__row
-            h3 This is the header
+            .form__row
+              h1 This is the header
 
-          - var error_required = 'This field is required'
-          +form_text('surname', 'Surname / family name', 'true', error_required, '')
-          +form_textarea('blah', 'Blah textarea', 'true', error_required, '')
-          +form_email('email', 'Email', 'true', 'Enter a valid email', '')
-          +form_select('test', 'THis is a test select', 'true', 'Select one option from the available', {})
-          +form_range('woot', 'Woot range', 'true', error_required, 1, 1, 5, 1, 'horizontal')
+            - var error_required = 'This field is required'
+            +form_text('surname', 'Surname / family name', 'true', error_required, '')
+            +form_text('firstname', 'First name / preferred name', 'true', error_required, '')
+            +form_radios('gender', 'Gender / gender identity', 'true', error_required, gender_options)
+            +form_textarea('blah', 'Blah textarea', 'true', error_required, '')
+            +form_email('email', 'Email', 'true', 'Enter a valid email', '')
+            +form_select('test', 'THis is a test select', 'true', 'Select one option from the available', {})
+            +form_range('woot', 'Woot range', 'true', error_required, 1, 1, 5, 1, 'horizontal')
 
-          .form__row
-            input.formSpeedConnection(type='hidden', name='speed')
-            input.formTechOs(type='hidden', name='os')
-            input.formTechBrowser(type='hidden', name='browser')
-            input.formTechResolution(type='hidden', name='resolution')
-            input.formTechCountry(type='hidden', name='country')
-            button.btn.btn--primary.btn--submit(type='submit') Submit
+            .form__row
+              input.formSpeedConnection(type='hidden', name='speed')
+              input.formTechOs(type='hidden', name='os')
+              input.formTechBrowser(type='hidden', name='browser')
+              input.formTechResolution(type='hidden', name='resolution')
+              input.formTechCountry(type='hidden', name='country')
+              button.btn.btn--primary.btn--submit(type='submit') Submit
 
       .cell-module
         .card
