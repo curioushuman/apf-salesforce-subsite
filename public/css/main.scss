@@ -179,6 +179,16 @@ label {
   color: $colour-warning;
   padding-top: 8px;
 }
+
+div.radio {
+  margin-left: 20px;
+  color: $colour-grey-dark;
+}
+
+div.has_success div.radio {
+  color: $colour-grey-dark;
+}
+
 .btn {
   font-size: 22px;
   background-color: $colour-white;

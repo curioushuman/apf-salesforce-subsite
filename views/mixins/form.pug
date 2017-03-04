@@ -37,9 +37,10 @@ mixin form_radios(id, name, required, error, options)
     label(for=id) #{name}
     for option in options
       div.radio
-        input.form__element(type='radio', name=id+'.'+option.id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=option.value)
+        input.form__element(type='radio', name=id, id=id+'.'+option.id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value=option.value)
         | #{option.label}
     else
-      input.form__element(type='radio', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value='', checked)
-      | No options available
-    span(class='form__feedback.form-feedback--'+id)
+      div.radio
+        input.form__element(type='radio', name=id, data-parsley-required=required, data-parsley-class-handler='.form__row--'+id, data-parsley-errors-container='.form-feedback--'+id, data-parsley-error-message=error, value='', checked)
+        | No options available
+    span(class='form__feedback form-feedback--'+id)
